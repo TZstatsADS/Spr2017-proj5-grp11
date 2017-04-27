@@ -78,19 +78,19 @@ shinyUI(navbarPage(
                          draggable = F, 
                          top = 380, left = 100, right = "auto", bottom = "auto",
                          width = 250, height = "auto",
-                         radioButtons(inputId = "genres",
+                         radioButtons(inputId = "keywords",
                                       label  = "How about the color?",
-                                      choices = c('1','2','3','4','5','6'),
-                                      selected ='1')
+                                      choices = c('red','yellow','green','blue','purple','black'),
+                                      selected ='red')
            ),
            absolutePanel(id = "controls3", class = "panel panel-default",
                          draggable = FALSE, 
                          top = 600, left = 100, right = "auto", bottom = "auto",
                          width = 250, height = "auto",
-                         radioButtons(inputId = "genres",
+                         radioButtons(inputId = "keywords2",
                                       label  = "Have you ever read the poems",
-                                      choices = c('1','2','3','4','5','6'),
-                                      selected ='1')
+                                      choices = c('A','B','C','D','E','F'),
+                                      selected ='A')
            ),      
            absolutePanel(id = "options1", class = "panel panel-default",
                                      draggable = FALSE, 
