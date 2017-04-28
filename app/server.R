@@ -129,20 +129,20 @@ server<- function(input, output, session){
   output$text = renderUI({
     HTML("<br/><br/><br/>Our Shiny App seeks to provide you with a fun and different platform to choose a movie to watch.<br/><br/>
          You can either key in one of your favorite movies to get a recommendation <b>(Recommend me!)</b>, <br/><br/>
-         Or use our <b>Im feeling Lucky!</b> tab to choose a movie by selecting images and poems that call out to you. <br/><br/>
+         Or use our <b>Im feeling Lucky!</b> tab to choose a movie by selecting images, colors, and poems that call out to you. <br/><br/>
          Of course, our methodology is secret, but do not worry as we have backed it up with psychology research. <br/><br/>
-         (or maybe not)<br/><br/><br/><br/>Group 11: Jia Hui, Tong Yue, Bo Wen, Chengcheng, Shu Yi")
+         (or maybe not)<br/><br/><br/><br/>Group 11: Jia Hui, Tong Yue, Bo Wen, Cheng Cheng, Shu Yi")
   })
   
   ##Manual
   output$manual=renderUI({HTML("<br/><br/><br/><b>(Recommend me!)</b><br>
                                - User keys in one favorite movie<br>
-                               - We would recommend four movies, displaying a word cloud for the audience review of that movie and some basic information<br/><br/>
-                               <br/><br/><br/><b>(I am feeling lucky!)</b><br>
-                               - User keys in choices of favorite pictures<br>
-                               - We would recommend four movies, displaying a word cloud for the audience reviews of that movie and some basic information. The recommendation is based on reference of chosen <br/><br/>
+                               - We would recommend four movies, displaying a word cloud of the audience reviews of that movie and some basic information<br/><br/>
+                               <br/><br/><br/><b>(Im feeling lucky!)</b><br>
+                               - User chooses a picture, a color, and a poetic line that calls out to them.<br>
+                               - We would recommend four movies, displaying a word cloud of the audience reviews of that movie and some basic information.  <br/><br/>
                                <br/><br/><br/><b>(To be Continued!)</b><br>
-                               - display some data analysis results to give users a broad view of the scores of movies belonged to different genres and across different countries<br>")
+                               - Display some interaction data visualization plot to let users visualize the relationship between IMDB Score, countries, genres, and gross<br>")
     
   })
   
@@ -337,7 +337,7 @@ server<- function(input, output, session){
   output$explain = renderUI({
     HTML("<br/><br/><br/>This tab serves to provide additional information that we hope would be useful in some way in helping the user decide on what kind of movie to watch. 
          In view of this, we created two plots:<br/><br/>
-         <b>1. Explore the distribution of IMDB score and gross for movies of various</b><br/><br/>
+         <b>1. Explore the distribution of IMDB score and gross for movies of various countries</b><br/><br/>
          <b>2. Boxplot of the IMDB score of various genres </b><br/><br/>
          Gives a preliminary visualization of which genre seem to have a higher IMDB mean score/spread size <br/><br/>
          <b>Have lots of fun using our app!</b><br/><br/>
