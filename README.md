@@ -45,7 +45,6 @@ Term: Spring 2017
 <br/>
 
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.39%20PM.png)
-
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.52%20PM.png)
 <br/>
 
@@ -53,7 +52,9 @@ Term: Spring 2017
   <br/>
 	In this part, we hope to provide some additional information that we hope would be useful in some way in helping the user decide on what kind of movie to watch.First, we plot a 3D graph to show the relationship between country, gross and IMDB score. The second graph is a box plot of IMDB score across different genres. 
 <br/>
+
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/ff7dc11dc6e86eaf1b4f5caa9fd5a3e691482040/figs/Screen%20Shot%202017-04-28%20at%2012.11.13%20AM.png)
+
 <br/>
 <br/>
 
