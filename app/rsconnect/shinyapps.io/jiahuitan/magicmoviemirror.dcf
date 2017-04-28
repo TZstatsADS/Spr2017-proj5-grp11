@@ -1,0 +1,11 @@
+name: magicmoviemirror
+title: MagicMovieMirror
+account: jiahuitan
+server: shinyapps.io
+appId: 176068
+bundleId: 807350
+url: https://jiahuitan.shinyapps.io/magicmoviemirror/
+when: 1493357544.92687
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: www/trade-icon_1.png|www/trade-icon_2.png|www/trade-icon_3.png|www/trade-icon_4.png|www/trade-icon_5.png|www/trade-icon_6.png|www/trade-icon_7.png|www/trade-icon_8.png
