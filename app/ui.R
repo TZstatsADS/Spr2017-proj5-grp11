@@ -1,27 +1,6 @@
-packages.used <- 
-  c("dplyr",
-    "tidyr",
-    "plyr",
-    "syuzhet",
-    "shinyBS",
-    "text2vec",
-    "RANN",
-    "stringr",
-    "gplots",
-    "ggplot2",
-    "plotly"
-  )
-
-# check packages that need to be installed.
-packages.needed=setdiff(packages.used, 
-                        intersect(installed.packages()[,1], 
-                                  packages.used))
-# install additional packages
-if(length(packages.needed)>0){
-  install.packages(packages.needed, dependencies = TRUE)
-}
 
 #load the packages
+if(FALSE){
 library(plyr)
 library(dplyr)
 library(tidyr)
@@ -32,8 +11,8 @@ library(RANN)
 library(stringr)
 library(ggplot2)
 library(plotly)
+  }
 
-setwd("../data")
 
 #load data
 input_data =  read.csv("data_clean.csv",header = T,as.is = T)

@@ -1,27 +1,6 @@
-packages.used <- 
-  c("dplyr",
-    "tidyr",
-    "plyr",
-    "syuzhet",
-    "shinyBS",
-    "text2vec",
-    "RANN",
-    "stringr",
-    "gplots",
-    "ggplot2",
-    "plotly"
-  )
-
-# check packages that need to be installed.
-packages.needed=setdiff(packages.used, 
-                        intersect(installed.packages()[,1], 
-                                  packages.used))
-# install additional packages
-if(length(packages.needed)>0){
-  install.packages(packages.needed, dependencies = TRUE)
-}
 
 #load the packages
+if (FALSE){
 library(plyr)
 library(dplyr)
 library(tidyr)
@@ -31,7 +10,7 @@ library(text2vec)
 library(RANN)
 library(stringr)
 library(ggplot2)
-library(plotly)
+library(plotly)}
 
 
 ## main data
@@ -178,7 +157,7 @@ server<- function(input, output, session){
     recc1 <- str_replace_all(string=recc1, pattern=" ", repl="")
     recc1 <- str_replace_all(string=recc1, pattern="/", repl="_")
     recc1 <- str_replace_all(string=recc1, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc1, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc1, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc1))
     
     }, deleteFile=FALSE) 
@@ -191,7 +170,7 @@ server<- function(input, output, session){
     recc2 <- str_replace_all(string=recc2, pattern=" ", repl="")
     recc2 <- str_replace_all(string=recc2, pattern="/", repl="_")
     recc2 <- str_replace_all(string=recc2, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc2, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc2, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc2))
     
   }, deleteFile=FALSE) 
@@ -204,7 +183,7 @@ server<- function(input, output, session){
     recc3 <- str_replace_all(string=recc3, pattern=" ", repl="")
     recc3 <- str_replace_all(string=recc3, pattern="/", repl="_")
     recc3 <- str_replace_all(string=recc3, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc3, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc3, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc3))
     
   }, deleteFile=FALSE) 
@@ -217,7 +196,7 @@ server<- function(input, output, session){
     recc4 <- str_replace_all(string=recc4, pattern=" ", repl="")
     recc4 <- str_replace_all(string=recc4, pattern="/", repl="_")
     recc4 <- str_replace_all(string=recc4, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc4, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc4, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc4))
     
   }, deleteFile=FALSE) 
@@ -281,7 +260,7 @@ server<- function(input, output, session){
     recc1 <- str_replace_all(string=recc1, pattern=" ", repl="")
     recc1 <- str_replace_all(string=recc1, pattern="/", repl="_")
     recc1 <- str_replace_all(string=recc1, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc1, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs/', paste(recc1, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc1))
     
   }, deleteFile=FALSE) 
@@ -294,7 +273,7 @@ server<- function(input, output, session){
     recc2 <- str_replace_all(string=recc2, pattern=" ", repl="")
     recc2 <- str_replace_all(string=recc2, pattern="/", repl="_")
     recc2 <- str_replace_all(string=recc2, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc2, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc2, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc2))
     
   }, deleteFile=FALSE) 
@@ -306,7 +285,7 @@ server<- function(input, output, session){
     recc3 <- str_replace_all(string=recc3, pattern=" ", repl="")
     recc3 <- str_replace_all(string=recc3, pattern="/", repl="_")
     recc3 <- str_replace_all(string=recc3, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc3, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc3, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc3))
     
   }, deleteFile=FALSE) 
@@ -319,14 +298,14 @@ server<- function(input, output, session){
     recc4 <- str_replace_all(string=recc4, pattern=" ", repl="")
     recc4 <- str_replace_all(string=recc4, pattern="/", repl="_")
     recc4 <- str_replace_all(string=recc4, pattern=":", repl="_")
-    filename = normalizePath(file.path('../figs', paste(recc4, '.jpg', sep='')))
+    filename = normalizePath(file.path('./figs', paste(recc4, '.jpg', sep='')))
     list(src=filename, width=470, height=330,alt=paste("Reviews Wordcloud", recc4))
     
   }, deleteFile=FALSE) 
   
   
   ###to be continued
-  movie <- read.csv("../data/data_symbol.csv",header=T,as.is=T)
+  movie <- read.csv("data_symbol.csv",header=T,as.is=T)
   
   movie$symbols <- as.factor(movie$symbols)
   movie <- movie[is.na(movie$gross)==FALSE,]
@@ -334,7 +313,7 @@ server<- function(input, output, session){
   symbols_top <- names(sort(symbols_gross,decreasing=T))[1:20]
   movie_plotly <- movie[movie$symbols %in% symbols_top,]
   
-  movie1 <- read.csv("../data/data_clean.csv",header=T,as.is=T)
+  movie1 <- read.csv("data_clean.csv",header=T,as.is=T)
   movie1$country <- as.factor(movie1$country)
   movie1 <- movie1[is.na(movie1$gross)==FALSE,]
   country_gross <- tapply(as.numeric(movie1$gross),movie1$country,sum)
@@ -352,7 +331,7 @@ server<- function(input, output, session){
   
   output$Plot2 <- renderPlotly(
     plot_ly(movie, x = ~symbols, y= ~imdb_score, color= ~symbols, colors="Set3",type = "box") %>%
-      layout(yaxis=list(title="IMDB Socre"),xaxis=list(title=""))
+      layout(yaxis=list(title="IMDB Score"),xaxis=list(title=""))
   )
   
   output$explain = renderUI({
