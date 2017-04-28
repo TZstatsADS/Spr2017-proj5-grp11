@@ -27,6 +27,7 @@ Term: Spring 2017
 
 
 **APP Introduction**
+	![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.03%20PM.png)
   + *Part 1: “Recommend me!” panel*
   <br/>
 	Recommend four movies according to the favorite movie that the user inputs. Using the KD-Tree classifier “nn2” in RANN, which uses a KD-Tree to find a p number of near neighbors for each point in an input/output dataset to offer recommendation. 
