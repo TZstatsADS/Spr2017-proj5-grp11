@@ -31,10 +31,12 @@ Term: Spring 2017
 <br/>
 	Recommend four movies according to the favorite movie that the user inputs. Using the KD-Tree classifier “nn2” in RANN, which uses a KD-Tree to find a p number of near neighbors for each point in an input/output dataset to offer recommendation. 
 <br/>
-  + *Part 2: “I’m feeling lucky!” panel *
+
+  + *Part 2: “I’m feeling lucky!” panel*
 <br/>
 	The user is encouraged to choose a picture, colour, and poetic line respectively that call out to him the most. We did some research on psychological explanation of links between these and sentiments/genre, and we applied this to our analysis.
 <br/>
+
   + *Part 3: To be continued panel*
 <br/>
 	In this part, we hope to provide some additional information that we hope would be useful in some way in helping the user decide on what kind of movie to watch.First, we plot a 3D graph to show the relationship between country, gross and IMDB score. The second graph is a box plot of IMDB score across different genres. 
