@@ -1,4 +1,37 @@
-library(shiny)
+packages.used <- 
+  c("dplyr",
+    "tidyr",
+    "plyr",
+    "syuzhet",
+    "shinyBS",
+    "text2vec",
+    "RANN",
+    "stringr",
+    "gplots",
+    "ggplot2",
+    "plotly"
+  )
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+# install additional packages
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
+
+#load the packages
+library(plyr)
+library(dplyr)
+library(tidyr)
+library(syuzhet)
+library(shinyBS)
+library(text2vec)
+library(RANN)
+library(stringr)
+library(ggplot2)
+library(plotly)
 
 setwd("../data")
 
@@ -12,188 +45,176 @@ shinyUI(navbarPage(
   theme = "bootstrap2.css",
   
   ##Project Title
-  "Movie Inside You",
+  "Magic Movie Mirror",
+  
+  
+  tags$head(
+    tags$style(HTML("body{
+                    background-image: url(http://www.publicdomainpictures.net/pictures/170000/velka/faded-clouds-background.jpg );
+                    }"))),
   
   tabPanel("Home",
            htmlOutput("blankspace"),
-           titlePanel("Adventure in Movies"),
+           titlePanel("Magic Mirror on the Wall, What is the Movie for me Now?"),
            h4(htmlOutput("text")),
            htmlOutput("teammates")
   ),
+  
+  tabPanel("Manual",
+           titlePanel("How to use our App"),
+           h4(htmlOutput("manual"))
+  ),
+  
   
   tabPanel("Recommend me!",
            titlePanel("Movie Recommendation"),
            absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = TRUE, 
-                         top = 180, left = 60, right = "auto", bottom = "auto",
+                         top = 180, left = 20, right = "auto", bottom = "auto",
                          width = 350, height = "auto",
                          
                          h2("Key in one of your favourite movie and we will recommend you one back!"),
                          hr(),
                          verbatimTextOutput('out6'),
-                         selectInput('movienames', 'My Movie Choice:', input_data$movie_title, selected="Spectre", multiple=F, selectize=T)
+                         selectInput('movienames', 'My Movie Choice:', input_data$movie_title, selected="Titanic", multiple=F, selectize=T)
            ),
            absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = TRUE, 
-                         top = 180, left = 460, right = "auto", bottom = "auto",
-                         width = 350, height = 350,
-                         h2("Movie Rec 1!"),
-                         #dataTableOutput("try"),
-                         imageOutput("wordcloud1",width="250px",height="250px")
-                         #imageOutput("wordcloud2",width="100%",height="250px"),
-                         #imageOutput("wordcloud3",width="100%",height="250px"),
-                         #imageOutput("wordcloud4",width="100%",height="250px")
+                         top = 180, left = 390, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("wordcloud1"),
+                         verbatimTextOutput("w1")
            ),
            
            absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = TRUE, 
-                         top = 180, left = 800, right = "auto", bottom = "auto",
-                         width = 350, height = 350,
-                         h2("Movie Rec 2!"),
-                         #dataTableOutput("try"),
-                         #imageOutput("wordcloud1",width="250px",height="250px")
-                         imageOutput("wordcloud2",width="100%",height="250px")
-                         #imageOutput("wordcloud3",width="100%",height="250px"),
-                         #imageOutput("wordcloud4",width="100%",height="250px")
+                         top = 180, left = 890, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("wordcloud2"),
+                         verbatimTextOutput("w2")
+           ),
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = TRUE, 
+                         top = 698, left = 390, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("wordcloud3"),
+                         verbatimTextOutput("w3")
+                         
+                         
+           ),
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = TRUE, 
+                         top = 698, left = 890, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("wordcloud4"),
+                         verbatimTextOutput("w4")
            )
-           
-           
            
   ),
-
+  
   
   tabPanel("I'm feeling Lucky!",
-           titlePanel("Do not know what to watch? Just follow your heart!"),
-
-           absolutePanel(id = "controls1", class = "panel panel-default",
+           titlePanel("Don't know what to watch? Just follow your heart!"),
+           
+           absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = F, 
-                         top = 160, left = 100, right = "auto", bottom = "auto",
+                         top = 160, left = 20, right = "auto", bottom = "auto",
                          width = 250, height = "auto",
                          radioButtons(inputId = "genres",
-                                      label  = "1.which attracts you most",
+                                      label  = "1. Which picture attracts you the most?",
                                       choices = c('1','2','3','4','5','6'),
-                                      selected ='1')
+                                      selected ='3')
            ),
-           absolutePanel(id = "controls2", class = "panel panel-default",
+           absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = F, 
-                         top = 380, left = 100, right = "auto", bottom = "auto",
+                         top = 420, left = 20, right = "auto", bottom = "auto",
                          width = 250, height = "auto",
                          radioButtons(inputId = "keywords",
-                                      label  = "How about the color?",
-                                      choices = c('red','yellow','green','blue','purple','black'),
-                                      selected ='red')
+                                      label  = "2. Which color calls out to you?",
+                                      choices = c('red','pink','orange','dark yellow','blue','purple'),
+                                      selected ='orange')
            ),
-           absolutePanel(id = "controls3", class = "panel panel-default",
+           absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = FALSE, 
-                         top = 600, left = 100, right = "auto", bottom = "auto",
+                         top = 680, left = 20, right = "auto", bottom = "auto",
                          width = 250, height = "auto",
                          radioButtons(inputId = "keywords2",
-                                      label  = "Have you ever read the poems",
+                                      label  = "3. Which is your favorite poetic line?",
                                       choices = c('A','B','C','D','E','F'),
-                                      selected ='A')
+                                      selected ='C')
            ),      
-           absolutePanel(id = "options1", class = "panel panel-default",
-                                     draggable = FALSE, 
-                                     top = 160, left = 320, right = "auto", bottom = "auto",
-                                     width = 1160, height = "auto",
-                                     HTML('</center><img src="picture.gif" width="190" height="190" border="10"><tr>
-                                          <img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>
-                                          <tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>')
-                                     
-                                     ),
-           absolutePanel(id = "options2", class = "panel panel-default",
+           absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = FALSE, 
-                         top = 380, left = 320, right = "auto", bottom = "auto",
-                         width = 1160, height = "auto",
-                         HTML('</center><img src="picture.gif" width="190" height="190" border="10"><tr>
-                              <img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>
-                              <tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>')
+                         top = 180, left = 280, right = "auto", bottom = "auto",
+                         width = 1120, height = 195,
+                         HTML('</center><img src="actiongenre.jpg" width="175" height="190" border="10"><tr>
+                              <img src="fantasygenre.jpg" width="175" height="190" border=10> <tr><img src="mysterygenre.jpg" width="175" height="190" border=10>
+                              <tr><img src="romancegenre.jpg" width="175" height="190" border=10> <tr><img src="comedygenre.jpg" width="175" height="190" border=10> <tr><img src="docgenre.jpg" width="175" height="190" border=10>')
                          
                          ),
-           absolutePanel(id = "options3", class = "panel panel-default",
+           absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = FALSE, 
-                         top = 600, left = 320, right = "auto", bottom = "auto",
-                         width = 1160, height = "auto",
-                         HTML('</center><img src="picture.gif" width="190" height="190" border="10"><tr>
-                              <img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>
-<tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10> <tr><img src="picture.gif" width="190" height="190" border=10>')
+                         top = 440, left = 280, right = "auto", bottom = "auto",
+                         width = 1120, height = 195,
+                         HTML('</center><img src="red.jpg" width="175" height="190" border="10"><tr>
+                              <img src="pink.jpg" width="175" height="190" border=10> <tr><img src="orange.jpg" width="175" height="190" border=10>
+                              <tr><img src="yellow.jpg" width="175" height="190" border=10> <tr><img src="blue.jpg" width="175" height="190" border=10> <tr><img src="purple.jpg" width="175" height="190" border=10>')
                          
-           ),
-           absolutePanel(id = "wordcloud1", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 820, left = 480, right = "auto", bottom = "auto",
-                         width = 500, height = "auto",
-                         imageOutput("1"),
-                         textOutput("1")
                          ),
-           absolutePanel(id = "wordcloud2", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 820, left = 980, right = "auto", bottom = "auto",
-                         width = 500, height = "auto",
-                         imageOutput("2"),
-                         textOutput("2")
-           ),
-           absolutePanel(id = "wordcloud3", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 1220, left = 480, right = "auto", bottom = "auto",
-                         width = 500, height = "auto",
-                         imageOutput("3"),
-                         textOutput("3")
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = FALSE, 
+                         top = 700, left = 280, right = "auto", bottom = "auto",
+                         width = 1120, height = 195,
+                         HTML('</center><img src="anger.png" width="175" height="190" border="10"><tr>
+                              <img src="joy.png" width="175" height="190" border=10> <tr><img src="trust.png" width="175" height="190" border=10>
+                              <tr><img src="disgust.png" width="175" height="190" border=10> <tr><img src
+                              ="sad.png" width="175" height="190" border=10> <tr><img src="anticipation.png" width="175" height="190" border=10>')
+                         
                          ),
-           absolutePanel(id = "wordcloud4", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 1220, left = 980, right = "auto", bottom = "auto",
-                         width = 500, height = "auto",
-                         imageOutput("4"),
-                         textOutput("4")
-           ),
-           absolutePanel(id = "sen1", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 820, left = 100, right = "auto", bottom = "auto",
-                         width = 350, height = 270,
-                         plotOutput("1")),
-           absolutePanel(id = "sen2", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 1090, left = 100, right = "auto", bottom = "auto",
-                         width = 350, height = 270,
-                         plotOutput("2")),
-           absolutePanel(id = "sen3", class = "panel panel-default",
-                         draggable = TRUE, 
-                         top = 1350, left = 100, right = "auto", bottom = "auto",
-                         width = 350, height = 270,
-                         plotOutput("3"))
-           
-           
-           ),
-  
-  
-  
-  
-  tabPanel("To be continued",
-           titlePanel("Coffee ,tea, and others traded between US and the world"),
            absolutePanel(id = "controls", class = "panel panel-default",
                          draggable = TRUE, 
-                         top = 180, left = 60, right = "auto", bottom = "auto",
-                         width = 350, height = "auto",
-                         
-                         h2("3D Explorer"),
-                         
-                         radioButtons(inputId = "type",
-                                      label  = "Choose import/export",
-                                      choices = c('Export','Import'),
-                                      selected ='Import'),
-                         sliderInput(inputId = "year_3D",
-                                     label = "Select a year",
-                                     value = 1996, min =1996, max =2016),
-                         sliderInput(inputId = "number_countries",
-                                     label = "Top Countries in Trade",
-                                     value = 10,min = 1,max = 50),
-                         selectInput(inputId = "commodity_3D",
-                                     label  = "Select the commodity",
-                                     choices = c('Annual Aggregate','Chocolate', 'Coffee','Cocoa','Spices','Tea'),
-                                     selected ='Coffee')
-           )
+                         top = 950, left = 300, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("p1"),
+                         verbatimTextOutput("r1")
+           ),
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = TRUE, 
+                         top = 950, left = 810, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("p2"),
+                         verbatimTextOutput("r2")
+           ),
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = TRUE, 
+                         top = 1480, left = 300, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("p3"),
+                         verbatimTextOutput("r3")
+           ),
+           absolutePanel(id = "controls", class = "panel panel-default",
+                         draggable = TRUE, 
+                         top = 1480, left = 810, right = "auto", bottom = "auto",
+                         width = 500, height = "auto",
+                         imageOutput("p4"),
+                         verbatimTextOutput("r4")
+           )),
+  
+  tabPanel( "To be continued",
+            titlePanel("In the end..."),
+            
+            # Show a plot of the generated distribution
+            absolutePanel(id="controls", class="panel panel-default", draggable=TRUE,
+              top = 160, left = 30,
+              plotlyOutput("Plot1")),
+            absolutePanel(id="controls", class="panel panel-default", draggable=TRUE,
+                          top = 600, left = 30,
+                          plotlyOutput("Plot2")),
+            absolutePanel(id="controls", class="panel panel-default", draggable=TRUE,
+                          top = 160, left = 800, width=600,
+                          htmlOutput("explain"))
+            ))      
            
            
            
-  )))
+  )
