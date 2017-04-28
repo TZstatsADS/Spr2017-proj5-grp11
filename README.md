@@ -35,6 +35,7 @@ Term: Spring 2017
   <br/>
 	Recommend four movies according to the favorite movie that the user inputs. Using the KD-Tree classifier “nn2” in RANN, which uses a KD-Tree to find a p number of near neighbors for each point in an input/output dataset to offer recommendation. 
 <br/>
+
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.10%20PM.png)
 <br>
 
@@ -42,7 +43,9 @@ Term: Spring 2017
   <br/>
 	The user is encouraged to choose a picture, colour, and poetic line respectively that call out to him the most. We did some research on psychological explanation of links between these and sentiments/genre, and we applied this to our analysis.
 <br/>
+
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.39%20PM.png)
+
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.52%20PM.png)
 <br/>
 
