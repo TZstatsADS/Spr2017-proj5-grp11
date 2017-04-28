@@ -27,6 +27,10 @@ Term: Spring 2017
 
 
 ### APP Introduction
+
+The app is available here: https://jiahuitan.shinyapps.io/magicmoviemirror/
+
+
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.52.54%20PM.png)
 
 ![alt tag](https://github.com/TZstatsADS/Spr2017-proj5-grp11/blob/bfc9d70e28c4e68c6d8efa8fd1dde5fa7bf18cd6/figs/Screen%20Shot%202017-04-27%20at%2010.53.03%20PM.png)
