@@ -20,8 +20,7 @@ Term: Spring 2017
 + a. More direct method: Use a KDTree classifier that we built using the data and additional features, we will recommend 4 movies based on one particular favorite movie of the user.  
      <br/>
  + b.More indirect method: Using “psychological analysis”, we will recommend a few movies based on what picture, what colour, and what poetic line the user chooses.	
- <br/>
-
+<br/>
 	We applied data science and natural language processing tools such as tree classification, LDA, sentimental analysis and word cloud visualization to implement the recommendation system and visualize the results in a more efficient, convenient, and most importantly fun manner. 
 <br/>
 <br/>
