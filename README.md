@@ -12,7 +12,11 @@ Term: Spring 2017
 	+ Liu Tongyue
 	+ Tang Shuyi
 	<br/>
-	
+
+** How to run this project:
++ The shiny app can be accessed from: https://jiahuitan.shinyapps.io/magicmoviemirror/
++ To reproduce this on RStudio, please download the entire repository from github and setwd to the app folder. 
+
 **Project summary**
 <br/>
 	In this project, we seek to build a shiny app that would recommend movies to users based on two different methods: 
