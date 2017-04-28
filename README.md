@@ -2,8 +2,9 @@
 
 Term: Spring 2017
 
-+ Team #
-+ Projec title: Lorem ipsum dolor sit amet
++ Team #11
+
++ Projec title: Movie Magic Mirror
 + Team members
 	+ Yuan Chengcheng
 	+ Tan Jiahui
@@ -12,9 +13,9 @@ Term: Spring 2017
 	+ Tang Shuyi
 + Project summary: In this project, we seek to build a shiny app that would recommend movies to users based on two different methods: 
 
-     +a. More direct method: Use a KDTree classifier that we built using the data and additional features, we will recommend 4 movies based on one particular favorite movie of the user.  
+     + a. More direct method: Use a KDTree classifier that we built using the data and additional features, we will recommend 4 movies based on one particular favorite movie of the user.  
      <br/>
-     +b.More indirect method: Using “psychological analysis”, we will recommend a few movies based on what picture, what colour, and what poetic line the user chooses.
+     + b.More indirect method: Using “psychological analysis”, we will recommend a few movies based on what picture, what colour, and what poetic line the user chooses.
 	
 **Contribution statement**: All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
